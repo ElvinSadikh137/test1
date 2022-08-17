@@ -28,7 +28,7 @@ public class Student {
     @Column(name = "email")
     String email;
 
-    @JsonIgnore
+//    @JsonIgnore
     @ToString.Exclude
     @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     @JoinColumn(name = "phone_id",referencedColumnName = "id")

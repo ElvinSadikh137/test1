@@ -5,7 +5,7 @@ databaseChangeLog:
       description: "Creating category table"
       changes:
         - createTable:
-            tableName: Category
+            tableName: category
             columns:
               - column:
                   name: id
@@ -20,8 +20,8 @@ databaseChangeLog:
                   constraints:
                     nullable: false
                 addForeignKeyConstraint:
-                baseTableName: Category
+                baseTableName: category
                 baseColumnNames: id
-                referencedTableName: Book
+                referencedTableName: book
                 constraintName: fk_category_pk
                 referencedColumnNames: id

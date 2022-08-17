@@ -5,7 +5,7 @@ databaseChangeLog:
       description: "Creating author table"
       changes:
         - createTable:
-            tableName: Author
+            tableName: author
             columns:
               - column:
                   name: id
@@ -25,8 +25,8 @@ databaseChangeLog:
                   constraints:
                     foreignKeyName: aut
                 addForeignKeyConstraint:
-                 baseTableName: Author
+                 baseTableName: author
                  baseColumnNames: id
-                 referencedTableName: Book
+                 referencedTableName: book
                  constraintName: fk_author_pk
                  referencedColumnNames: id

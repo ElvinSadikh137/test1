@@ -5,7 +5,7 @@ databaseChangeLog:
       description: "Creating phone table"
       changes:
         - createTable:
-            tableName: Phone
+            tableName: phone
             columns:
               - column:
                   name: id
@@ -25,8 +25,8 @@ databaseChangeLog:
                   constraints:
                     nullable: false
                 addForeignKeyConstraint:
-                baseTableName: Phone
+                baseTableName: phone
                 baseColumnNames: id
-                referencedTableName: Student
+                referencedTableName: student
                 constraintName: fk_phone_pk
                 referencedColumnNames: id

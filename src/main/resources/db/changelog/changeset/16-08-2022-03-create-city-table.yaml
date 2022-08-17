@@ -5,7 +5,7 @@ databaseChangeLog:
       description: "Creating city table"
       changes:
         - createTable:
-            tableName: City
+            tableName: city
             columns:
               - column:
                   name: id
@@ -20,8 +20,8 @@ databaseChangeLog:
                   constraints:
                     nullable: false
                 addForeignKeyConstraint:
-                baseTableName: City
+                baseTableName: city
                 baseColumnNames: id
-                referencedTableName: Zipcode
+                referencedTableName: zipcode
                 constraintName: fk_city_pk
                 referencedColumnNames: id

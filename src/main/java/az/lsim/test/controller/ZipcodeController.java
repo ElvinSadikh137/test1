@@ -40,7 +40,7 @@ public class ZipcodeController {
         zipcodeService.deleteZipcode(id);
     }
 
-    @GetMapping("get")
+    @GetMapping("/get")
     public List<Zipcode>getAll(){
        return zipcodeService.getAll();
     }

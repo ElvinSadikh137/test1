@@ -5,7 +5,7 @@ databaseChangeLog:
       description: "Creating zipcode table"
       changes:
         - createTable:
-            tableName: Zipcode
+            tableName: zipcode
             columns:
               - column:
                   name: id
