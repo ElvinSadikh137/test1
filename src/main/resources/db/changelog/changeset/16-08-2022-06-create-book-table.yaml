@@ -1,0 +1,34 @@
+databaseChangeLog:
+  - changeSet:
+      id: 16-08-2022-06
+      author: Elvin
+      description: "Creating book table"
+      changes:
+        - createTable:
+            tableName: Book
+            columns:
+              - column:
+                  name: id
+                  type: BIGINT
+                  autoIncrement: true
+                  constraints:
+                    nullable: false
+                    primaryKey: true
+
+              - column:
+                  name: book_name
+                  type: varchar(200)
+                  constraints:
+                    nullable: false
+
+              - column:
+                  name: category_id
+                  type: BIGINT
+                  constraints:
+                    foreignKeyName: aut
+                addForeignKeyConstraint:
+                baseTableName: Book
+                baseColumnNames: id
+                referencedTableName: Author
+                constraintName: fk_book_pk
+                referencedColumnNames: id

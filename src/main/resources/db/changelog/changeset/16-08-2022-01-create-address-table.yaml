@@ -1,0 +1,27 @@
+databaseChangeLog:
+  - changeSet:
+      id: 16-08-2022-01
+      author: Elvin
+      description: "Creating Address Table"
+      changes:
+        - createTable:
+            tableName: Address
+            columns:
+              - column:
+                  name: id
+                  type: BIGINT
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: address_name
+                  type: varchar(200)
+                  constraints:
+                    nullable: false
+                addForeignKeyConstraint:
+                baseTableName: Address
+                baseColumnNames: id
+                referencedTableName: user
+                constraintName: fk_address_pk
+                referencedColumnNames: id

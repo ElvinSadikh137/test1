@@ -1,13 +1,12 @@
 package az.lsim.test.model;
 
-import lombok.AccessLevel;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import liquibase.repackaged.org.apache.commons.lang3.builder.HashCodeExclude;
+import lombok.*;
 import lombok.experimental.FieldDefaults;
 
 import javax.persistence.*;
 import java.util.List;
+import java.util.Objects;
 
 @Entity
 @Data
@@ -17,16 +16,17 @@ import java.util.List;
 @FieldDefaults(level = AccessLevel.PRIVATE)
 public class Phone {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     Long id;
     @Column(name = "phone")
     String phone;
+
     @Column(name = "phone_number")
-    String phoneNumber;
+    String phone_number;
 
 
-    @OneToMany(mappedBy = "phone", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @OneToMany(mappedBy = "phone", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     List<Student> student;
 
 

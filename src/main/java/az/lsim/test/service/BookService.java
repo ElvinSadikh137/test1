@@ -1,6 +1,8 @@
 package az.lsim.test.service;
 
+import az.lsim.test.model.Author;
 import az.lsim.test.model.Book;
+import az.lsim.test.model.Zipcode;
 import az.lsim.test.repository.BookRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -21,5 +23,9 @@ public class BookService {
 
     public List<Book> getAll() {
     return bookRepository.findAll();
+    }
+
+    public List<Book>find(){
+        return bookRepository.findWithoutNPlusOne();
     }
 }

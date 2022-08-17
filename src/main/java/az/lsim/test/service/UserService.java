@@ -1,5 +1,6 @@
 package az.lsim.test.service;
 
+import az.lsim.test.model.Phone;
 import az.lsim.test.model.User;
 import az.lsim.test.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
@@ -13,8 +14,12 @@ public class UserService {
 
     private final UserRepository userRepository;
 
-    public List<User> getAll() {
+    public List<User> findAll() {
         return userRepository.findAll();
+    }
+
+    public List<User> find() {
+        return userRepository.findWithoutNPlusOne();
     }
 
     public void saveUser(User user){

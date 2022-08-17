@@ -1,6 +1,7 @@
 package az.lsim.test.controller;
 
 import az.lsim.test.model.Book;
+import az.lsim.test.model.Zipcode;
 import az.lsim.test.service.BookService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -21,6 +22,11 @@ public class BookController {
     @GetMapping("/getBook")
     public List<Book> getAllBook() {
         return bookService.getAll();
+    }
+
+    @GetMapping("/get")
+    public List<Book>find(){
+        return bookService.find();
     }
 
     @PostMapping("/addBook")

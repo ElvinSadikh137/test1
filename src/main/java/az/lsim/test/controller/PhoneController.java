@@ -1,6 +1,7 @@
 package az.lsim.test.controller;
 
 
+import az.lsim.test.model.Book;
 import az.lsim.test.model.Phone;
 import az.lsim.test.service.PhoneService;
 import lombok.RequiredArgsConstructor;
@@ -25,8 +26,12 @@ public class PhoneController {
     }
 
     @GetMapping("/getPhone")
-    public List<Phone> getAllPhone(){
-        return phoneService.getAll();
+    public List<Phone> getAllPhone() {
+        return phoneService.findAll();
+    }
+    @GetMapping("/get")
+    public List<Phone>find(){
+        return phoneService.find();
     }
     @PostMapping("/addPhone")
     public void addPhone(@RequestBody Phone phone){

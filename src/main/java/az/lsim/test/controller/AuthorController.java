@@ -1,6 +1,7 @@
 package az.lsim.test.controller;
 
 import az.lsim.test.model.Author;
+import az.lsim.test.model.Zipcode;
 import az.lsim.test.repository.AuthorRepository;
 import az.lsim.test.service.AuthorService;
 import lombok.RequiredArgsConstructor;

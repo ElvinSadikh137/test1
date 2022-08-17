@@ -1,0 +1,32 @@
+databaseChangeLog:
+  - changeSet:
+      id: 16-08-2022-05
+      author: Elvin
+      description: "Creating author table"
+      changes:
+        - createTable:
+            tableName: Author
+            columns:
+              - column:
+                  name: id
+                  type: BIGINT
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: author_name
+                  type: varchar(200)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: zipcode_id
+                  type: BIGINT
+                  constraints:
+                    foreignKeyName: aut
+                addForeignKeyConstraint:
+                 baseTableName: Author
+                 baseColumnNames: id
+                 referencedTableName: Book
+                 constraintName: fk_author_pk
+                 referencedColumnNames: id

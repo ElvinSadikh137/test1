@@ -1,10 +1,7 @@
 package az.lsim.test.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import lombok.AccessLevel;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 import lombok.experimental.FieldDefaults;
 
 import javax.persistence.*;
@@ -23,14 +20,15 @@ public class Author implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     Long id;
-    @Column(name = "name")
-    String name;
-
+    @Column(name = "author_name")
+    String author_name;
+    @JsonIgnore
+    @ToString.Exclude
     @ManyToOne
     @JoinColumn(name = "zipcode_id")
     Zipcode zipcode;
     @JsonIgnore
-    @ManyToMany(mappedBy = "category", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @ManyToMany(mappedBy = "category", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     List<Book> books;
 
 }
