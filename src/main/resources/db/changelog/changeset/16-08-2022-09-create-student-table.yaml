@@ -5,7 +5,7 @@ databaseChangeLog:
       description: "Creating student table"
       changes:
         - createTable:
-            tableName: Student
+            tableName: student
             columns:
               - column:
                   name: id
@@ -40,8 +40,8 @@ databaseChangeLog:
                   constraints:
                     foreignKeyName: aut
                 addForeignKeyConstraint:
-                baseTableName: Student
+                baseTableName: student
                 baseColumnNames: id
-                referencedTableName: Phone
+                referencedTableName: phone
                 constraintName: fk_student_pk
                 referencedColumnNames: id

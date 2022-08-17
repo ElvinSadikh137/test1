@@ -5,10 +5,10 @@ databaseChangeLog:
       description: "Creating book table"
       changes:
         - createTable:
-            tableName: Book
+            tableName: book
             columns:
               - column:
-                  name: id
+                  name: book_id
                   type: BIGINT
                   autoIncrement: true
                   constraints:
@@ -27,8 +27,8 @@ databaseChangeLog:
                   constraints:
                     foreignKeyName: aut
                 addForeignKeyConstraint:
-                baseTableName: Book
+                baseTableName: book
                 baseColumnNames: id
-                referencedTableName: Author
+                referencedTableName: author
                 constraintName: fk_book_pk
                 referencedColumnNames: id

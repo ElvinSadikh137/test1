@@ -5,7 +5,7 @@ databaseChangeLog:
       description: "Creating User Table"
       changes:
         - createTable:
-            tableName: User
+            tableName: user
             columns:
               - column:
                   name: id
@@ -25,8 +25,8 @@ databaseChangeLog:
                   constraints:
                     foreignKeyName: aut
                 addForeignKeyConstraint:
-                baseTableName: User
+                baseTableName: user
                 baseColumnNames: id
-                referencedTableName: Address
+                referencedTableName: address
                 constraintName: fk_user_pk
                 referencedColumnNames: id

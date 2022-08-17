@@ -5,7 +5,7 @@ databaseChangeLog:
       description: "Creating Address Table"
       changes:
         - createTable:
-            tableName: Address
+            tableName: address
             columns:
               - column:
                   name: id
@@ -20,7 +20,7 @@ databaseChangeLog:
                   constraints:
                     nullable: false
                 addForeignKeyConstraint:
-                baseTableName: Address
+                baseTableName: address
                 baseColumnNames: id
                 referencedTableName: user
                 constraintName: fk_address_pk

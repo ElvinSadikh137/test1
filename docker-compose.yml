@@ -1,0 +1,31 @@
+version: '3.1'
+services:
+  db:
+    hostname: mysql
+#    restart: always
+    image: mysql:8.0.30-oracle
+    volumes:
+      - db_data3:/var/lib/mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: "0085"
+      MYSQL_USERNAME: "root"
+    ports:
+      - "3306:3306"
+
+
+  backend:
+    hostname: application
+    image: apptest:v3.0
+    restart: on-failure
+    environment:
+      MYSQL_HOST: db
+      MYSQL_PORT: 3306
+      MYSQL_USERNAME: root
+    ports:
+      - "8081:8080"
+    depends_on:
+      - db
+
+
+volumes:
+  db_data3:
