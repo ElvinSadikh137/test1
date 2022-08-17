@@ -1,0 +1,29 @@
+databaseChangeLog:
+  - changeSet:
+      id: 16-08-2022-05
+      author: Elvin
+      description: "Creating zipcode table"
+      changes:
+        - createTable:
+            tableName: Zipcode
+            columns:
+              - column:
+                  name: id
+                  type: BIGINT
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: zipcode_name
+                  type: varchar(200)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: city_id
+                  type: BIGINT
+                  constraints:
+                    nullable: false
+                    foreignKeyName: fk_zipcode_city
+                    referencedTableName: fk_zipcode_city
+

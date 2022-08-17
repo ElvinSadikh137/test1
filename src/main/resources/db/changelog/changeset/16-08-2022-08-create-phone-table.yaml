@@ -1,0 +1,32 @@
+databaseChangeLog:
+  - changeSet:
+      id: 16-08-2022-08
+      author: Elvin
+      description: "Creating phone table"
+      changes:
+        - createTable:
+            tableName: Phone
+            columns:
+              - column:
+                  name: id
+                  type: BIGINT
+                  autoIncrement: true
+                  constraints:
+                    nullable: false
+                    primaryKey: true
+              - column:
+                  name: phone
+                  type: varchar(200)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: phone_number
+                  type: varchar(200)
+                  constraints:
+                    nullable: false
+                addForeignKeyConstraint:
+                baseTableName: Phone
+                baseColumnNames: id
+                referencedTableName: Student
+                constraintName: fk_phone_pk
+                referencedColumnNames: id

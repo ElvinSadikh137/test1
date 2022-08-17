@@ -18,8 +18,12 @@ public class UserController {
     private final UserService userService;
 
     @GetMapping("/getUser")
-    public List<User> getALlUsers() {
-        return userService.getAll();
+    public List<User> getAllUser() {
+        return userService.findAll();
+    }
+    @GetMapping("/get")
+    public List<User>find(){
+        return userService.find();
     }
 
     @PostMapping("/addUser")

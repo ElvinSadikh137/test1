@@ -1,6 +1,7 @@
 package az.lsim.test.service;
 
 import az.lsim.test.model.Author;
+import az.lsim.test.model.Zipcode;
 import az.lsim.test.repository.AuthorRepository;
 import lombok.AccessLevel;
 import lombok.RequiredArgsConstructor;
@@ -23,7 +24,10 @@ public class AuthorService {
         authorRepository.deleteById(id);
     }
 
-    public List<Author> getAll() {
+    public List<Author>getAll(){
         return authorRepository.findAll();
     }
+
+
+
 }

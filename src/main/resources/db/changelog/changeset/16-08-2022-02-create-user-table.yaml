@@ -1,0 +1,32 @@
+databaseChangeLog:
+  - changeSet:
+      id: 16-08-2022-02
+      author: Elvin
+      description: "Creating User Table"
+      changes:
+        - createTable:
+            tableName: User
+            columns:
+              - column:
+                  name: id
+                  type: BIGINT
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: user_name
+                  type: varchar(200)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: address_id
+                  type: BIGINT
+                  constraints:
+                    foreignKeyName: aut
+                addForeignKeyConstraint:
+                baseTableName: User
+                baseColumnNames: id
+                referencedTableName: Address
+                constraintName: fk_user_pk
+                referencedColumnNames: id

@@ -18,13 +18,13 @@ import java.io.Serializable;
 @FieldDefaults(level = AccessLevel.PRIVATE)
 public class Address implements Serializable {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     Long id;
     @Column(name="address_name")
-    String addressName;
+    String address_name;
     @JsonIgnore
-    @OneToOne(mappedBy = "address",cascade = CascadeType.ALL,fetch = FetchType.EAGER)
+    @OneToOne(mappedBy = "address",cascade = CascadeType.ALL,fetch = FetchType.LAZY)
     User user;
 
 }

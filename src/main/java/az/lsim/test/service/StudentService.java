@@ -2,6 +2,7 @@ package az.lsim.test.service;
 
 import az.lsim.test.model.Address;
 import az.lsim.test.model.Student;
+import az.lsim.test.model.User;
 import az.lsim.test.repository.AddressRepository;
 import az.lsim.test.repository.StudentRepository;
 import lombok.RequiredArgsConstructor;
@@ -15,8 +16,12 @@ import java.util.Optional;
 public class StudentService {
     private final StudentRepository studentRepository;
 
-    public List<Student> getAll(){
+    public List<Student> findAll() {
         return studentRepository.findAll();
+    }
+
+    public List<Student> find() {
+        return studentRepository.findWithoutNPlusOne();
     }
 
     public Optional<Student> getById(Long id) {

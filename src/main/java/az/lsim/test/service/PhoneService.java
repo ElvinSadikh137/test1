@@ -2,6 +2,7 @@ package az.lsim.test.service;
 
 import az.lsim.test.model.Phone;
 import az.lsim.test.model.Student;
+import az.lsim.test.model.Zipcode;
 import az.lsim.test.repository.PhoneRepository;
 import az.lsim.test.repository.StudentRepository;
 import lombok.RequiredArgsConstructor;
@@ -15,19 +16,23 @@ import java.util.Optional;
 public class PhoneService {
     private final PhoneRepository phoneRepository;
 
-    public List<Phone> getAll(){
+    public List<Phone> findAll() {
         return phoneRepository.findAll();
+    }
+
+    public List<Phone> find() {
+        return phoneRepository.findWithoutNPlusOne();
     }
 
     public Optional<Phone> getById(Long id) {
         return phoneRepository.findById(id);
     }
 
-    public void addPhone(Phone phone){
+    public void addPhone(Phone phone) {
         phoneRepository.save(phone);
     }
 
-    public void deletePhone(Long id){
+    public void deletePhone(Long id) {
         phoneRepository.deleteById(id);
     }
 

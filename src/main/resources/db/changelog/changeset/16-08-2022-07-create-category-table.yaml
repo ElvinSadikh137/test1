@@ -1,0 +1,27 @@
+databaseChangeLog:
+  - changeSet:
+      id: 16-08-2022-07
+      author: Elvin
+      description: "Creating category table"
+      changes:
+        - createTable:
+            tableName: Category
+            columns:
+              - column:
+                  name: id
+                  type: BIGINT
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: category_name
+                  type: varchar(200)
+                  constraints:
+                    nullable: false
+                addForeignKeyConstraint:
+                baseTableName: Category
+                baseColumnNames: id
+                referencedTableName: Book
+                constraintName: fk_category_pk
+                referencedColumnNames: id

@@ -1,7 +1,8 @@
 package az.lsim.test.model;
 
+import az.lsim.test.repository.ZipcodeRepository;
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import lombok.*;
 import lombok.experimental.FieldDefaults;
 
@@ -15,15 +16,15 @@ import java.io.Serializable;
 @Table(name = "zipcode")
 @FieldDefaults(level = AccessLevel.PRIVATE)
 @ToString
+@NamedEntityGraph(name = "zipcode_entity_graph",attributeNodes = @NamedAttributeNode("city"))
 public class Zipcode implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     Long id;
-    @Column(name = "name")
-    String name;
-
-    @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @Column(name = "zipcode_name")
+    String zipcode_name;
+    @OneToOne(cascade = CascadeType.PERSIST,fetch = FetchType.EAGER)
     @JoinColumn(name = "city_id", referencedColumnName = "id")
     City city;
 

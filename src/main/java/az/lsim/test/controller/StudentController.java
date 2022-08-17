@@ -1,6 +1,7 @@
 package az.lsim.test.controller;
 
 import az.lsim.test.model.Student;
+import az.lsim.test.model.User;
 import az.lsim.test.service.StudentService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -24,8 +25,12 @@ public class StudentController {
     }
 
     @GetMapping("/getStudent")
-    public List<Student> getAllPhone(){
-        return studentService.getAll();
+    public List<Student> getAllStudent() {
+        return studentService.findAll();
+    }
+    @GetMapping("/get")
+    public List<Student>find(){
+        return studentService.find();
     }
     @PostMapping("/addStudent")
     public void addPhone(@RequestBody Student student){

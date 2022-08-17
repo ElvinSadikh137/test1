@@ -14,16 +14,16 @@ import java.io.Serializable;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-@Table(name = "users")
+@Table(name = "user")
 @FieldDefaults(level = AccessLevel.PRIVATE)
 public class User implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     Long id;
-    @Column(name = "users_name")
-    String userName;
-    @OneToOne(cascade = CascadeType.ALL,fetch = FetchType.EAGER)
+    @Column(name = "user_name")
+    String user_name;
+    @OneToOne(cascade = CascadeType.ALL,fetch = FetchType.LAZY)
     @JoinColumn(name = "address_id", referencedColumnName = "id")
     Address address;
 }
